@@ -35,13 +35,13 @@ def delete_employee(id):
         conn.close() # type: ignore
 
 
-def get_id_by_name(name):
+def get_employee_by_name(name):
     try:
         conn = get_connection()
         cur = conn.cursor()
 
         cur.execute("""
-            SELECT id FROM employees 
+            SELECT * FROM employees 
             WHERE LOWER(name) = LOWER(?)
         """, (name,))
         result = cur.fetchall()

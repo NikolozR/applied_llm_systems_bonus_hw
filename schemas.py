@@ -43,9 +43,9 @@ delete_employee_tool_schema = {
 }
 
 
-get_id_by_name_tool_schema = {
-    "name": "get_id_by_name",
-    "description": "Retrieves employee ID by searching name, may return several ids if several employees have the same name",
+get_employee_by_name_tool_schema = {
+    "name": "get_employee_by_name",
+    "description": "Retrieves employee data by searching name, may return several rows if several employees have the same name",
     "parameters": {
         "type": "object",
         "properties": {
