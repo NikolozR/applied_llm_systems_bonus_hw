@@ -3,6 +3,26 @@ import sqlite3
 def get_connection():
     return sqlite3.connect('company.db')
 
+def init_employee_table():
+    try:
+        conn = get_connection()
+        cur = conn.cursor()
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS employees (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                role TEXT NOT NULL,
+                department TEXT NOT NULL,
+                salary REAL NOT NULL
+            )
+        """)
+        conn.commit()
+        return "Database initialized."
+    except Exception as e:
+        return f"Error initializing DB: {e}"
+    finally:
+        conn.close() # type: ignore
+
 def add_employee(name, role, department, salary):
     try:
         conn = get_connection()

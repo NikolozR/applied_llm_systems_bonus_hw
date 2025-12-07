@@ -1,3 +1,8 @@
+init_employee_table_tool_schema = {
+    "name": "init_employee_table",
+    "description": "Inits employee table with autoincrement ID column, name, role, department and salary, non of the columns can be NULL",
+}
+
 
 add_employee_tool_schema = {
     "name": "add_employee",
