@@ -44,7 +44,24 @@ def get_id_by_name(name):
             SELECT id FROM employees 
             WHERE LOWER(name) = LOWER(?)
         """, (name,))
-        result = cur.fetchone()
+        result = cur.fetchall()
+        return result
+    except Exception as e:
+        return f"Error: {e}"
+    finally:
+        conn.close() # type: ignore
+
+def get_top_k_employees_salary(k):
+    try:
+        conn = get_connection()
+        cur = conn.cursor()
+
+        cur.execute("""
+            SELECT * FROM employees 
+            ORDER BY salary DESC LIMIT ?
+        """, (k,))
+    
+        result = cur.fetchall()
         return result
     except Exception as e:
         return f"Error: {e}"

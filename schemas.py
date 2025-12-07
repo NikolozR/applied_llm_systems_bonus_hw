@@ -57,3 +57,18 @@ get_id_by_name_tool_schema = {
         "required": ["name"],
     },
 }
+
+get_top_k_employees_salary_tool_schema = {
+    "name": "get_top_k_employees_salary",
+    "description": "Retrieves top K employees by salary",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "k": {
+                "type": "number",
+                "description": "How many top employees is needed to be retrieved",
+            },
+        },
+        "required": ["k"],
+    },
+}
