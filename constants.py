@@ -1,5 +1,5 @@
-from tools import add_employee, delete_employee, get_id_by_name
-from schemas import add_employee_tool_schema, delete_employee_tool_schema, get_id_by_name_tool_schema
+from tools import add_employee, delete_employee, get_id_by_name, get_top_k_employees_salary
+from schemas import add_employee_tool_schema, delete_employee_tool_schema, get_id_by_name_tool_schema, get_top_k_employees_salary_tool_schema
 
 
 
@@ -7,12 +7,19 @@ from schemas import add_employee_tool_schema, delete_employee_tool_schema, get_i
 TOOL_MAPPING = {
     'add_employee': add_employee,
     'delete_employee': delete_employee,
-    'get_id_by_name': get_id_by_name
+    'get_id_by_name': get_id_by_name,
+    'get_top_k_employees_salary': get_top_k_employees_salary
 }
 
 # Just list of tool schemas that LLM can use
 LLM_TOOLS = [
     add_employee_tool_schema,
     delete_employee_tool_schema,
-    get_id_by_name_tool_schema
+    get_id_by_name_tool_schema,
+    get_top_k_employees_salary_tool_schema
 ]
+
+SYSTEM_PROMPT = """
+You are assistant for a company's manager.
+Currency in this company is USD. 
+Please use $ sign and number formatting when necessary."""

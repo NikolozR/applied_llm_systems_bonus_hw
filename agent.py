@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import os
 from google import genai
 from google.genai import types
-from constants import TOOL_MAPPING, LLM_TOOLS
+from constants import TOOL_MAPPING, LLM_TOOLS, SYSTEM_PROMPT
 
 load_dotenv()
 api_key = os.getenv("LLM_HW_API_KEY")
@@ -13,7 +13,7 @@ client = genai.Client(api_key=api_key)
 
 tools = types.Tool(function_declarations=LLM_TOOLS) # type: ignore
 
-config = types.GenerateContentConfig(tools=[tools])
+config = types.GenerateContentConfig(tools=[tools], system_instruction=SYSTEM_PROMPT)
 # we use chat so in terminal we can just simply create chat simulation
 chat = client.chats.create(model="gemini-2.5-flash", config=config)
 
