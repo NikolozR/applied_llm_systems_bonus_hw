@@ -107,3 +107,13 @@ get_employees_by_department_tool_schema = {
         "required": ["department"],
     },
 }
+
+get_all_roles_tool_schema = {
+    "name": "get_all_roles",
+    "description": "Retrieves a list of all unique roles in the company",
+}
+
+get_all_departments_tool_schema = {
+    "name": "get_all_departments",
+    "description": "Retrieves a list of all unique departments in the company",
+}

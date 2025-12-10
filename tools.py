@@ -119,3 +119,33 @@ def get_employees_by_department(department):
         return f"Error: {e}"
     finally:
         conn.close() # type: ignore
+
+def get_all_roles():
+    try:
+        conn = get_connection()
+        cur = conn.cursor()
+
+        cur.execute("""
+            SELECT DISTINCT role FROM employees
+        """)
+        result = [row[0] for row in cur.fetchall()]
+        return result
+    except Exception as e:
+        return f"Error: {e}"
+    finally:
+        conn.close() # type: ignore
+
+def get_all_departments():
+    try:
+        conn = get_connection()
+        cur = conn.cursor()
+
+        cur.execute("""
+            SELECT DISTINCT department FROM employees
+        """)
+        result = [row[0] for row in cur.fetchall()]
+        return result
+    except Exception as e:
+        return f"Error: {e}"
+    finally:
+        conn.close() # type: ignore
