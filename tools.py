@@ -87,3 +87,35 @@ def get_top_k_employees_salary(k):
         return f"Error: {e}"
     finally:
         conn.close() # type: ignore
+
+def get_employees_by_role(role):
+    try:
+        conn = get_connection()
+        cur = conn.cursor()
+
+        cur.execute("""
+            SELECT * FROM employees 
+            WHERE LOWER(role) = LOWER(?)
+        """, (role,))
+        result = cur.fetchall()
+        return result
+    except Exception as e:
+        return f"Error: {e}"
+    finally:
+        conn.close() # type: ignore
+
+def get_employees_by_department(department):
+    try:
+        conn = get_connection()
+        cur = conn.cursor()
+
+        cur.execute("""
+            SELECT * FROM employees 
+            WHERE LOWER(department) = LOWER(?)
+        """, (department,))
+        result = cur.fetchall()
+        return result
+    except Exception as e:
+        return f"Error: {e}"
+    finally:
+        conn.close() # type: ignore

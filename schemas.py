@@ -77,3 +77,33 @@ get_top_k_employees_salary_tool_schema = {
         "required": ["k"],
     },
 }
+
+get_employees_by_role_tool_schema = {
+    "name": "get_employees_by_role",
+    "description": "Retrieves employees by their role",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "role": {
+                "type": "string",
+                "description": "The role to search for (e.g. 'Manager', 'Engineer')",
+            },
+        },
+        "required": ["role"],
+    },
+}
+
+get_employees_by_department_tool_schema = {
+    "name": "get_employees_by_department",
+    "description": "Retrieves employees by their department",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "department": {
+                "type": "string",
+                "description": "The department to search for (e.g. 'HR', 'IT')",
+            },
+        },
+        "required": ["department"],
+    },
+}

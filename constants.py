@@ -1,5 +1,5 @@
-from tools import add_employee, delete_employee, get_employee_by_name, get_top_k_employees_salary, init_employee_table
-from schemas import add_employee_tool_schema, delete_employee_tool_schema, get_employee_by_name_tool_schema, get_top_k_employees_salary_tool_schema, init_employee_table_tool_schema
+from tools import add_employee, delete_employee, get_employee_by_name, get_top_k_employees_salary, init_employee_table, get_employees_by_role, get_employees_by_department
+from schemas import add_employee_tool_schema, delete_employee_tool_schema, get_employee_by_name_tool_schema, get_top_k_employees_salary_tool_schema, init_employee_table_tool_schema, get_employees_by_role_tool_schema, get_employees_by_department_tool_schema
 
 
 
@@ -9,7 +9,9 @@ TOOL_MAPPING = {
     'delete_employee': delete_employee,
     'get_employee_by_name': get_employee_by_name,
     'get_top_k_employees_salary': get_top_k_employees_salary,
-    'init_employee_table': init_employee_table
+    'init_employee_table': init_employee_table,
+    'get_employees_by_role': get_employees_by_role,
+    'get_employees_by_department': get_employees_by_department
 }
 
 # Just list of tool schemas that LLM can use
@@ -18,7 +20,9 @@ LLM_TOOLS = [
     delete_employee_tool_schema,
     get_employee_by_name_tool_schema,
     get_top_k_employees_salary_tool_schema,
-    init_employee_table_tool_schema
+    init_employee_table_tool_schema,
+    get_employees_by_role_tool_schema,
+    get_employees_by_department_tool_schema
 ]
 
 SYSTEM_PROMPT = """
